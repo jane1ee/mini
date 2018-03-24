@@ -53,7 +53,7 @@ public class OfferFrame {
 		Font f1 = new Font("양재블럭체", Font.CENTER_BASELINE, 15);
 		
 		//패털 배경 설정
-		panelIcon = new ImageIcon("panelImage.jpg");
+		panelIcon = new ImageIcon("img/4th/room/panelImage.jpg");
 		JPanel panel = new JPanel(){
 			@Override
 			protected void paintComponent(Graphics g) {

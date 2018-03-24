@@ -338,7 +338,7 @@ public class Background extends JFrame{
 					if(count5 ==10){
 						count5 = 0;
 					}
-					Image countIM = new ImageIcon("img/4thfinish/key/" + String.valueOf(count5 = ++count5== 10 ? 0 : count5) + ".png").getImage().getScaledInstance(55,150, 0);
+					Image countIM = new ImageIcon("img/4th/finish/key/" + String.valueOf(count5 = ++count5== 10 ? 0 : count5) + ".png").getImage().getScaledInstance(55,150, 0);
 					numKey5.setIcon(new ImageIcon(countIM));
 					exitRoom(count1 , count2,count3,count4,count5,count6,count7);
 				}
@@ -363,7 +363,7 @@ public class Background extends JFrame{
 					if(count7 ==10){
 						count7 = 0;
 					}
-					Image countIM = new ImageIcon("img/4thfinish/key/" + String.valueOf(count7 = ++count7== 10 ? 0 : count7) + ".png").getImage().getScaledInstance(55,150, 0);
+					Image countIM = new ImageIcon("img/4th/finish/key/" + String.valueOf(count7 = ++count7== 10 ? 0 : count7) + ".png").getImage().getScaledInstance(55,150, 0);
 					numKey7.setIcon(new ImageIcon(countIM));
 					exitRoom(count1 , count2,count3,count4,count5,count6,count7);
 				}

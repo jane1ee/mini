@@ -179,6 +179,7 @@ public class Background extends JFrame {
 				System.out.println(nameInput.getText());	
 				name = nameInput.getText();		
 				nameField.dispose();
+				new LibraryThread().start();
 				mainFrame.getContentPane().removeAll();
 				mainFrame.getContentPane().add(monologue);
 				mainFrame.revalidate();
@@ -199,7 +200,6 @@ public class Background extends JFrame {
 				mainFrame.getContentPane().add(nameInputP);
 				mainFrame.revalidate();
 				mainFrame.repaint();
-				new LibraryThread().start();
 				nameField.setVisible(true);
 			}
 		});	
