@@ -1,0 +1,43 @@
+package khSecondProject;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+
+
+public class Run {
+
+	public Run(){
+		// TODO Auto-generated method stub
+				TheRoom start = new TheRoom();
+				
+				Runnable task1 = ()->{
+					
+					start.setTitle("THE ROOM");
+					start.setLocation(300, 130);
+					start.setSize(1280, 800);
+					start.setResizable(false);
+					start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					start.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+					start.setVisible(true);
+				};
+				
+				Runnable task2 = ()->{
+					start.flowtime(start.timeBox, 600);
+				};
+				
+				ExecutorService exr = Executors.newFixedThreadPool(2);
+				exr.submit(task1);
+				exr.submit(task2);
+				exr.shutdown();
+				
+	}
+
+	public static void main(String[] args) {
+		Run run = new Run();
+	}
+
+}
