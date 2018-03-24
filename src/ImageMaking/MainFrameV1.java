@@ -378,7 +378,6 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 	public void exitRoom(int count1, int count2, int count3, int count4) {
 		int check = 0;
 		if (exitCount1 == 5 && exitCount2 == 5 && exitCount3 == 5 && exitCount4 == 5) {
-			endFrame();
 			new endThread().start();
 			check++;
 
@@ -437,6 +436,7 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 				Thread.sleep(5000);
 				QuizFrame.dispose();
 				endFrame.dispose();
+				MainFrame.dispose();
 				Run run = new Run();
 
 			} catch (InterruptedException e) {
@@ -505,8 +505,6 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 //		endFrame.setLocationRelativeTo(null);
 //		endFrame.setResizable(false);
 //		endFrame.setVisible(true);
-		NextRoom nr=new NextRoom();
-		
 
 	}
 
