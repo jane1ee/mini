@@ -221,7 +221,7 @@ public class Background extends JFrame {
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(35000);
+				Thread.sleep(33000);
 				LibraryRun Library = new LibraryRun();
 				mainFrame.dispose();
 			} catch (InterruptedException e) {

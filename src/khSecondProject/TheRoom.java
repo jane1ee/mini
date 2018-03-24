@@ -112,7 +112,7 @@ public class TheRoom extends JFrame {
 		
 		
 		// 텍스트 에어리어 이벤트 : 스위치 버튼 클릭 유도
-		storyConsol.setBounds(280, 500, 742, 232);
+		storyConsol.setBounds(280, 520, 742, 232);
 		TextAction textClick = new TextAction();
 		storyConsol.addMouseListener(textClick);
 		storyConsol.setEditable(false);
@@ -129,7 +129,7 @@ public class TheRoom extends JFrame {
 		// 테이블 위 500 500 100 70
 		ImageIcon blackSwitch = new ImageIcon("img/3rd/button/btn1.png");
 		JButton switchBtn = new JButton(blackSwitch);
-		switchBtn.setBounds(500, 500, blackSwitch.getIconWidth(), blackSwitch.getIconHeight());
+		switchBtn.setBounds(490, 470, blackSwitch.getIconWidth(), blackSwitch.getIconHeight());
 		switchBtn.setBorderPainted(false);
 		// 스위치버튼 클릭 이벤트
 		switchBtn.addMouseListener(new SwitchAction());
