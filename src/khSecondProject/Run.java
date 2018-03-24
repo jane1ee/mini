@@ -35,9 +35,4 @@ public class Run {
 				exr.shutdown();
 				
 	}
-
-	public static void main(String[] args) {
-		Run run = new Run();
-	}
-
 }

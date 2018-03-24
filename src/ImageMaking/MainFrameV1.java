@@ -432,12 +432,12 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 
 		public void run() {
 			try {
-				QuizFrame.dispose();
 //				endFrame.setVisible(true);
-				Thread.sleep(5000);
+				QuizFrame.dispose();
+				Thread.sleep(100);
+				Run run = new Run();
 //				endFrame.dispose();
 				MainFrame.dispose();
-				Run run = new Run();
 
 			} catch (InterruptedException e) {
 				e.printStackTrace();

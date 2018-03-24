@@ -580,7 +580,7 @@ public class TheRoom extends JFrame {
 		public void run() {
 			// 문 열기
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 				GoNext next = new GoNext();	// 다음 방으로 가는 프레임 띄움
 				dispose();	// 현재 창 닫기
 			} catch (InterruptedException e) {
