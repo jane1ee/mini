@@ -31,7 +31,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 
 import library.LightOff.IntroThread;
-<<<<<<< HEAD
 import main.Propotie;
 import main.Stopwatch;
 
@@ -40,11 +39,6 @@ public class BreakLibrary extends JFrame {
 	Propotie pp = new Propotie();
 	Stopwatch sw = new Stopwatch();
 	
-=======
-
-
-public class BreakLibrary extends JFrame {
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 	// 배경
 	JScrollPane scrollPane;	
 	Image bgImg;
@@ -94,11 +88,7 @@ public class BreakLibrary extends JFrame {
 	JTextArea storyConsol;
 	// 출력할 문구 배열
 	String[] outro;
-<<<<<<< HEAD
-	int counttime=0;
-=======
-	
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
+	int counttime = 0;
 	
 	public BreakLibrary() {
 		// 마우스 커서
@@ -137,15 +127,12 @@ public class BreakLibrary extends JFrame {
 		// 패널 레이아웃 설정
 		background.setLayout(null);
 		
-<<<<<<< HEAD
 
 		// 시계
 		timeBox.setBounds(0,0,70,20);
 		timeBox.setFont(commonFont);
 		background.add(timeBox);
 		
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		
 		
 		//  문제 1 :책
@@ -176,10 +163,7 @@ public class BreakLibrary extends JFrame {
 					event.setVisible(true);
 					// 팝업 종료, 문제 출력
 					new LetterThread().start();
-<<<<<<< HEAD
 					background.add(starBtn);
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 				} else if (passCnt == 1) {
 					JOptionPane.showMessageDialog(background, "저기 걸려 있는 그림은 무슨 그림이지?");
 				} else {
@@ -187,11 +171,7 @@ public class BreakLibrary extends JFrame {
 				}
 			}
 		});
-<<<<<<< HEAD
 		
-=======
-
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		
 		
 		//  문제 2 : 액자(별이 빛나는 밤) 클릭시 출력
@@ -203,15 +183,9 @@ public class BreakLibrary extends JFrame {
 		starBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
 					if(passCnt == 0) {
 						JOptionPane.showMessageDialog(background, "이 그림의 제목과 연관이 있어.");
 					} else if(passCnt == 1) {
-=======
-				if(passCnt == 0) {
-					JOptionPane.showMessageDialog(background, "편지를 먼저 찾아야 해.");
-				} else if(passCnt == 1) {
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 					// 문제 발견 팝업
 					event = new JFrame();
 					// 위치, 크기 설정
@@ -361,7 +335,6 @@ public class BreakLibrary extends JFrame {
 						clueLabel.setLocation(0, 0);
 						clue.add(clueLabel);
 						
-<<<<<<< HEAD
 						
 						// 시간
 						pp.PutTime(counttime - 10);
@@ -371,10 +344,6 @@ public class BreakLibrary extends JFrame {
 						clue.setVisible(true);
 						
 						
-=======
-						// 보여지도록 하기
-						clue.setVisible(true);
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 						// 단서 팝업 종료, 깨진 거울 나타나기
 						new MirrorThread().start();
 					}
@@ -385,17 +354,12 @@ public class BreakLibrary extends JFrame {
 		
 		// 버튼 프레임에 추가
 		background.add(bookBtn);
-<<<<<<< HEAD
-=======
-		background.add(starBtn);
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		background.add(starPoetBtn);
 		background.add(mirrorBtn);
 		background.add(hintBtn);
 	}
 
 	
-<<<<<<< HEAD
 	
 	public void flowtime(JTextArea timeBox, int sec){
 		Stopwatch sw = new Stopwatch();
@@ -430,8 +394,6 @@ public class BreakLibrary extends JFrame {
 	
 	
 	
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 	// 배경음악 메소드 : 무한반복
 	public static void  LibraryBGM(String file, boolean loop) {
 		try {
@@ -646,11 +608,7 @@ public class BreakLibrary extends JFrame {
 				}
 			}
 			
-<<<<<<< HEAD
 			
-=======
-
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 			
 			// 문 열기
 			NextRoom next = new NextRoom();	// 다음 방으로 가는 프레임 띄움

@@ -14,11 +14,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
-<<<<<<< HEAD
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -30,11 +27,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-<<<<<<< HEAD
 import main.Propotie;
 
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 
 public class LightOff extends JFrame {
 	// 배경
@@ -117,12 +111,9 @@ public class LightOff extends JFrame {
 		background.add(storyConsol);
 		
 		
-<<<<<<< HEAD
 		Propotie pp = new Propotie();
 		
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
-		
+
 		//  스위치 버튼 이미지 설정, 버튼 생성, 위치 지정
 		ImageIcon blackSwitch = new ImageIcon("img/1st/library/offedswitch.png");
 		JButton switchBtn = new JButton(blackSwitch);
@@ -130,7 +121,6 @@ public class LightOff extends JFrame {
 		switchBtn.setBorderPainted(false);
 		// 스위치버튼 클릭 이벤트
 		switchBtn.addMouseListener(new SwitchAction());
-<<<<<<< HEAD
 		switchBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -160,8 +150,6 @@ public class LightOff extends JFrame {
 				dispose();
 			}
 		});
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		
 		// 버튼 프레임에 추가
 		background.add(switchBtn);		
@@ -173,19 +161,6 @@ public class LightOff extends JFrame {
 	class SwitchAction implements MouseListener {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
-=======
-			BreakLibrary breakLibrary = new BreakLibrary();
-			breakLibrary.setTitle("서재");
-			breakLibrary.setLocation(300, 130);
-			breakLibrary.setSize(1280, 800);
-			breakLibrary.setResizable(false);
-			breakLibrary.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			breakLibrary.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-			breakLibrary.setVisible(true);
-			// 창닫기
-			dispose();
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		}
 
 		@Override

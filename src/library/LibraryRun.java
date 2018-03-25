@@ -15,11 +15,8 @@ public class LibraryRun {
 		lightOff.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 		lightOff.setVisible(true);	
 	}
-<<<<<<< HEAD
 	
 	public static void main(String[] args) {
 		LibraryRun lr = new LibraryRun();
 	}
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 }
