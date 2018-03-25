@@ -39,8 +39,7 @@ public class InRoom extends JFrame {
 	// OutroFrame();
 	// }
 
-	public JPanel OutroFrame() { // 여기부터 소스 복붙
-		
+	public JPanel OutroFrame() { 
 		Image img;
 		
 		

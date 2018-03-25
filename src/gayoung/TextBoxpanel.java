@@ -16,17 +16,18 @@ import javax.swing.JTextArea;
 public class TextBoxpanel {
 	
 	 // textarea 배경
-	   Image textboxBg = new ImageIcon("img/textbox/textbox.png").getImage();
-	   // 인트로 텍스트 박스
-	   JTextArea storyConsol;
-	   // 인트로 문구 배열
-	   String[] intro;
+	 Image textboxBg = new ImageIcon("img/textbox/textbox.png").getImage();
+	 // 인트로 텍스트 박스
+	 JTextArea storyConsol;
+	 // 인트로 문구 배열
+	 String[] intro;
 	   
-	   // 클릭할 때마다 카운트 : 한 줄씩 출력
-	   int clickCnt = 0;
-	   Image bgImg;
-		Image mouseImg;
-		Cursor mouse;
+	 // 클릭할 때마다 카운트 : 한 줄씩 출력
+	 int clickCnt = 0;
+	 Image bgImg;
+	 Image mouseImg;
+	 Cursor mouse;
+		
 	   public TextBoxpanel() {
 	      
 	      
@@ -74,37 +75,37 @@ public class TextBoxpanel {
 	   }
 	   
 
-	   // 인트로 쓰레드
-	   class IntroThread extends Thread {
-	      String storyLine = "";   // 한 줄씩 출력할 문자열 선언
-	      
-	      public void run() {
-	          intro = new String[3];
-	            {
-	               intro[0] = "\n     5번째 방...";
-	               intro[1] = "\n     제발 마지막 방이였으면 좋겠는데....";
-	               intro[2] = "\n     힘내보자..!";
-	            }
-	            
-	         for(int i = 0; i < intro.length; i++) {
-	            for(int j = 0; j < intro[i].length(); j++) {
-	               // 0.005초에 한 글자씩 출력
-	               try {
-	                  Thread.sleep(50);
-	                  storyLine += intro[i].charAt(j);
-	                  storyConsol.setText(storyLine);
-	               } catch (InterruptedException e) {
-	                  e.printStackTrace();
-	               }
-	            }
-	            // 배열 하나가 출력되고 나면 1초 동안 정지
-	            try {
-	               Thread.sleep(1000);
-	               storyLine = "";
-	            } catch (InterruptedException e) {
-	               e.printStackTrace();
-	            }
-	         }
-	      }
-	   }
+   // 인트로 쓰레드
+   class IntroThread extends Thread {
+      String storyLine = "";   // 한 줄씩 출력할 문자열 선언
+      
+      public void run() {
+          intro = new String[3];
+            {
+               intro[0] = "\n     5번째 방...";
+               intro[1] = "\n     제발 마지막 방이였으면 좋겠는데....";
+               intro[2] = "\n     힘내보자..!";
+            }
+            
+         for(int i = 0; i < intro.length; i++) {
+            for(int j = 0; j < intro[i].length(); j++) {
+               // 0.005초에 한 글자씩 출력
+               try {
+                  Thread.sleep(50);
+                  storyLine += intro[i].charAt(j);
+                  storyConsol.setText(storyLine);
+               } catch (InterruptedException e) {
+                  e.printStackTrace();
+               }
+            }
+            // 배열 하나가 출력되고 나면 1초 동안 정지
+            try {
+               Thread.sleep(1000);
+               storyLine = "";
+            } catch (InterruptedException e) {
+               e.printStackTrace();
+            }
+         }
+      }
+   }
 }
