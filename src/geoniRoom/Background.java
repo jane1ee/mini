@@ -8,6 +8,7 @@ import geoniRoom.function.ButtonManagement;
 import geoniRoom.function.HintEvent;
 import geoniRoom.function.OfferFrame;
 import geoniRoom.function.ProblemManagement;
+import main.Opening;
 
 import java.awt.event.*;
 import java.awt.*;
@@ -379,96 +380,101 @@ public class Background extends JFrame{
 			
 	}
 		
-		public void exitRoom(int count1, int count2, int count3, int count4, int count5, int count6, int count7){
-			int check = 0;
-			if(count1 == 7 && count2 == 1 && count3 == 7 && count4 == 3 && count5 == 1 &&
-					count6 == 0 &&count7 == 2 ){
-				check++;
+	public void exitRoom(int count1, int count2, int count3, int count4, int count5, int count6, int count7){
+		int check = 0;
+		if(count1 == 7 && count2 == 1 && count3 == 7 && count4 == 3 && count5 == 1 &&
+				count6 == 0 &&count7 == 2 ){
+			check++;
+		}
+		if(check==1){
+		
+				frame.dispose();
+				mainFrame.dispose();
+				endFrame();
+				new endThread().start();
+		
+	}
+	
+	}
+	
+	public void intro(){
+		Image img;
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		img = tk.getImage("img/4th/room/introRoom.gif");
+		
+		background = new JPanel(){
+			@Override
+			public void paint(Graphics g) {
+				if(img == null){
+					return;
+				}
+				g.drawImage(img, 0, 0, this);
+				setOpaque(false);
+				super.paint(g);
 			}
-			if(check==1){
-			
-					frame.dispose();
-					mainFrame.dispose();
-					endFrame();
-					new endThread().start();
-			
-		}
+		};
 		
-		}
+		mainFrame.add(background);
+		scrollPane = new JScrollPane(background);
+		mainFrame.add(scrollPane);
 		
-		public void intro(){
-			Image img;
-			Toolkit tk = Toolkit.getDefaultToolkit();
-			img = tk.getImage("img/4th/room/introRoom.gif");
-			
-			background = new JPanel(){
-				@Override
-				public void paint(Graphics g) {
-					if(img == null){
-						return;
-					}
-					g.drawImage(img, 0, 0, this);
-					setOpaque(false);
-					super.paint(g);
-				}
-			};
-			
-			mainFrame.add(background);
-			scrollPane = new JScrollPane(background);
-			mainFrame.add(scrollPane);
-			
-			mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			mainFrame.setSize(1280, 800);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setSize(1280, 800);
 
-			mainFrame.setLocationRelativeTo(null);
-			mainFrame.setResizable(false);
-			mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-			mainFrame.setVisible(true);
-		}
+		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setResizable(false);
+		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+		mainFrame.setVisible(true);
+	}
+	
+	public void endFrame(){
+		Image img;
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		img = tk.getImage("img/opendoor/opendoor(4).gif");
 		
-		public void endFrame(){
-			Image img;
-			Toolkit tk = Toolkit.getDefaultToolkit();
-			img = tk.getImage("img/opendoor/opendoor.gif");
-			
-			background = new JPanel(){
-				@Override
-				public void paint(Graphics g) {
-					if(img == null){
-						return;
-					}
-					g.drawImage(img, 0, 0, this);
-					setOpaque(false);
-					super.paint(g);
+		background = new JPanel(){
+			@Override
+			public void paint(Graphics g) {
+				if(img == null){
+					return;
 				}
-			};
-			endFrame.add(background);
-			scrollPane = new JScrollPane(background);
-			endFrame.add(scrollPane);
-
-			endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			endFrame.setSize(1280, 800);
-			
-			endFrame.setLocationRelativeTo(null);
-			endFrame.setResizable(false);
-			endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-			endFrame.setVisible(true);
-			
-		}
-		
-		
-		
-		class endThread extends Thread {
-			public void run() {
-				try {
-					Thread.sleep(6000);
-					KkyRoom Kroom=new KkyRoom();
-					Kroom.setLocation(300,130);
-					endFrame.dispose();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-
+				g.drawImage(img, 0, 0, this);
+				setOpaque(false);
+				super.paint(g);
 			}
+		};
+		endFrame.add(background);
+		endFrame.setTitle("to the Next Room");
+		scrollPane = new JScrollPane(background);
+		endFrame.add(scrollPane);
+
+		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		endFrame.setSize(1280, 800);
+		
+		endFrame.setLocationRelativeTo(null);
+		endFrame.setResizable(false);
+		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+		
+		// 방문 여는 효과음
+		Opening op = new Opening();
+	    op.Opening("bgm/DoorOpen.wav");
+		endFrame.setVisible(true);
+		
+	}
+	
+	
+	
+	class endThread extends Thread {
+		public void run() {
+			try {
+				Thread.sleep(6000);
+				KkyRoom Kroom=new KkyRoom();
+				Kroom.setLocation(300,130);
+				endFrame.dispose();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 		}
 	}
+}

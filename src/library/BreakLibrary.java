@@ -19,7 +19,6 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -28,16 +27,19 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextPane;
 
-import library.LightOff.IntroThread;
+import ImageMaking.MainFrameV1;
+import main.Opening;
 import main.Propotie;
 import main.Stopwatch;
 
 
 public class BreakLibrary extends JFrame {
+	// 타이머
+	JTextArea timeBox;
 	Propotie pp = new Propotie();
 	Stopwatch sw = new Stopwatch();
+	int counttime = 0;
 	
 	// 배경
 	JScrollPane scrollPane;	
@@ -48,8 +50,6 @@ public class BreakLibrary extends JFrame {
 	Image mouseImg;
 	Cursor mouse;
 	Point point;
-	// 타이머
-	JTextArea timeBox;
 	// 문제1 : starry starry night - 숫자 암호 : 답) starry
 	ImageIcon book;
 	JButton bookBtn;
@@ -86,9 +86,10 @@ public class BreakLibrary extends JFrame {
 	Image textboxBg = new ImageIcon("img/textbox/textbox.png").getImage();
 	// out : 텍스트박스
 	JTextArea storyConsol;
+	JFrame endFrame;
 	// 출력할 문구 배열
 	String[] outro;
-	int counttime = 0;
+
 	
 	public BreakLibrary() {
 		// 마우스 커서
@@ -100,7 +101,7 @@ public class BreakLibrary extends JFrame {
 		setCursor(mouse);
 		
 		// 타이머
-		timeBox = new JTextArea(); //->필드변수로 선언하면 좋음
+		timeBox = new JTextArea();
 		timeBox.setBounds(0, 0, 70, 20);
 		Font commonFont = new Font("나눔스퀘어", Font.BOLD, 15);
 		timeBox.setFont(commonFont);
@@ -163,7 +164,6 @@ public class BreakLibrary extends JFrame {
 					event.setVisible(true);
 					// 팝업 종료, 문제 출력
 					new LetterThread().start();
-					background.add(starBtn);
 				} else if (passCnt == 1) {
 					JOptionPane.showMessageDialog(background, "저기 걸려 있는 그림은 무슨 그림이지?");
 				} else {
@@ -177,7 +177,7 @@ public class BreakLibrary extends JFrame {
 		//  문제 2 : 액자(별이 빛나는 밤) 클릭시 출력
 		starFrame = new ImageIcon("img/1st/library/frame.png");
 		starBtn = new JButton(starFrame);
-		starBtn.setBounds(918, 228, starFrame.getIconWidth(), starFrame.getIconHeight());
+		starBtn.setBounds(915, 228, starFrame.getIconWidth(), starFrame.getIconHeight());
 		starBtn.setBorderPainted(false);
 		starBtn.addMouseListener(new OnOffMouse());
 		starBtn.addActionListener(new ActionListener() {
@@ -460,6 +460,9 @@ public class BreakLibrary extends JFrame {
 				event.dispose();
 				// 문제 출력
 				Letter letter = new Letter(this);
+				// 다음 문제 버튼 생성
+				background.add(starBtn);
+				background.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -599,9 +602,9 @@ public class BreakLibrary extends JFrame {
 						e.printStackTrace();
 					}
 				}
-				// 배열 하나가 출력되고 나면 1.5초 동안 정지
+				// 배열 하나가 출력되고 나면 1초 정지
 				try {
-					Thread.sleep(1500);
+					Thread.sleep(1000);
 					storyLine = "";
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -611,9 +614,66 @@ public class BreakLibrary extends JFrame {
 			
 			
 			// 문 열기
-			NextRoom next = new NextRoom();	// 다음 방으로 가는 프레임 띄움
+			new endThread().start();
 			dispose();	// 현재 창 닫기
 			
+		}
+	}	
+	
+	
+	
+
+	// 아웃트로
+	public void endFrame(){
+		Image img;
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		img = tk.getImage("img/opendoor/opendoor(1).gif");
+		
+		background = new JPanel(){
+			@Override
+			public void paint(Graphics g) {
+				if(img == null){
+					return;
+				}
+				g.drawImage(img, 0, 0, this);
+				setOpaque(false);
+				super.paint(g);
+			}
+		};
+
+		endFrame = new JFrame();
+		endFrame.setTitle("to the Next Room");
+		scrollPane = new JScrollPane(background);
+		endFrame.add(scrollPane);
+
+		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		endFrame.setSize(1280, 800);
+		endFrame.setLocation(300, 130);
+		
+		endFrame.setLocationRelativeTo(null);
+		endFrame.setResizable(false);
+		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+		
+		// 방문 여는 효과음
+		Opening op = new Opening();
+	    op.Opening("bgm/DoorOpen.wav");
+		endFrame.setVisible(true);
+		
+	}
+	
+	
+	
+	class endThread extends Thread {
+		public void run() {
+			try {
+				endFrame();
+				Thread.sleep(6000);
+				MainFrameV1 v1 = new MainFrameV1();
+				endFrame.dispose();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 		}
 	}
 }

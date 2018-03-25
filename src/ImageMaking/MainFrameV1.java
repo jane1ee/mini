@@ -10,17 +10,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import khSecondProject.Run;
-import library.NextRoom;
+import main.Opening;
 
 public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionListener {
 
@@ -432,11 +436,11 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 
 		public void run() {
 			try {
-//				endFrame.setVisible(true);
+				endFrame();
 				QuizFrame.dispose();
-				Thread.sleep(100);
-				Go3rd go3rd = new Go3rd();
-//				endFrame.dispose();
+				Thread.sleep(6000);
+//				Run run = new Run();
+				endFrame.dispose();
 				MainFrame.dispose();
 
 			} catch (InterruptedException e) {
@@ -479,35 +483,56 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 	}
 
 	public void endFrame() {
-//		JFrame frame = new JFrame();
-//		Image img;
-//		Toolkit tk = Toolkit.getDefaultToolkit();
-//		img = tk.getImage("img/opendoor/opendoor.gif");
-//
-//		background = new JPanel() {
-//			public void paint(Graphics g) {
-//				if (img == null)
-//					return;
-//
-//				g.drawImage(img, 0, 0, this);
-//				setOpaque(false);
-//				super.paintComponent(g);
-//			}
-//
-//		};
-//		endFrame.add(background);
-//		scrollPane = new JScrollPane(background);
-//		endFrame.add(scrollPane);
-//
-//		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		endFrame.setSize(1280, 800);
-//
-//		endFrame.setLocationRelativeTo(null);
-//		endFrame.setResizable(false);
-//		endFrame.setVisible(true);
+		JFrame frame = new JFrame();
+		Image img;
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		img = tk.getImage("img/opendoor/opendoor(2).gif");
+		
+		background = new JPanel(){
+			@Override
+			public void paint(Graphics g) {
+				if(img == null){
+					return;
+				}
+				g.drawImage(img, 0, 0, this);
+				setOpaque(false);
+				super.paint(g);
+			}
+		};
+		endFrame.add(background);
+		scrollPane = new JScrollPane(background);
+		endFrame.add(scrollPane);
 
+		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		endFrame.setSize(1280, 800);
+		
+		endFrame.setLocationRelativeTo(null);
+		endFrame.setResizable(false);
+		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+
+		// 방문 여는 효과음
+		Opening op = new Opening();
+		op.Opening("bgm/DoorOpen.wav");
+		endFrame.setVisible(true);
 	}
 
+	
+	// 배경음악 메소드 : 나무문
+	public static void OpenBGM(String file) {
+		try {
+			AudioInputStream ais =
+					AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
+			Clip clip = AudioSystem.getClip();
+			clip.open(ais);
+			clip.start();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub

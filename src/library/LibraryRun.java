@@ -16,7 +16,7 @@ public class LibraryRun {
 		lightOff.setVisible(true);	
 	}
 	
-	public static void main(String[] args) {
-		LibraryRun lr = new LibraryRun();
-	}
+//	public static void main(String[] args) {
+//		LibraryRun lr = new LibraryRun();
+//	}
 }

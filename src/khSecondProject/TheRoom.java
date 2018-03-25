@@ -27,6 +27,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import geoniRoom.Background;
+import main.Opening;
+
 
 public class TheRoom extends JFrame {
 	// time
@@ -66,6 +69,9 @@ public class TheRoom extends JFrame {
 	// 마우스
 	Image mouseImg;
 	Cursor mouse;
+	
+	JPanel background;
+	JFrame endFrame;
 	
 	public TheRoom() {
 		
@@ -126,7 +132,7 @@ public class TheRoom extends JFrame {
 		background.add(storyConsol);
 		
 		
-		// 테이블 위 500 500 100 70
+		// 테이블 위 490 470 100 70
 		ImageIcon blackSwitch = new ImageIcon("img/3rd/button/btn1.png");
 		JButton switchBtn = new JButton(blackSwitch);
 		switchBtn.setBounds(490, 470, blackSwitch.getIconWidth(), blackSwitch.getIconHeight());
@@ -174,7 +180,7 @@ public class TheRoom extends JFrame {
 		// 책꽂이 545 230 100 70
 		ImageIcon bookcase = new ImageIcon("img/3rd/button/btn3.png");
 		JButton bookcaseBtn = new JButton(bookcase);
-		bookcaseBtn.setBounds(545, 230, bookcase.getIconWidth(), bookcase.getIconHeight());
+		bookcaseBtn.setBounds(538, 215, bookcase.getIconWidth(), bookcase.getIconHeight());
 		bookcaseBtn.setBorderPainted(false);
 		bookcaseBtn.addMouseListener(new SwitchAction());
 		bookcaseBtn.addActionListener(new ActionListener() {
@@ -498,7 +504,7 @@ public class TheRoom extends JFrame {
 	public void checked() {
 		if (this.rightAnswer > 1) {
 			JOptionPane.showMessageDialog(this, "이제 이동할 수 있습니다.");
-			new OutroThread().start();
+			new endThread().start();
 		}
 	}
 
@@ -567,6 +573,7 @@ public class TheRoom extends JFrame {
 
 	      this.setLocationRelativeTo(null);
 	      this.setResizable(false);
+	      this.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 	      this.setVisible(true);
 
 	   }		
@@ -574,18 +581,72 @@ public class TheRoom extends JFrame {
 	
 	
 
-	// 아웃트로 쓰레드
-	class OutroThread extends Thread {
-		@Override
+	// 아웃트로
+	public void endFrame(){
+		Image img;
+		Toolkit tk = Toolkit.getDefaultToolkit();
+		img = tk.getImage("img/opendoor/opendoor(4).gif");
+		
+		background = new JPanel(){
+			@Override
+			public void paint(Graphics g) {
+				if(img == null){
+					return;
+				}
+				g.drawImage(img, 0, 0, this);
+				setOpaque(false);
+				super.paint(g);
+			}
+		};
+
+		endFrame = new JFrame();
+		endFrame.setTitle("to the Next Room");
+		scrollPane = new JScrollPane(background);
+		endFrame.add(scrollPane);
+
+		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		endFrame.setSize(1280, 800);
+		endFrame.setLocation(300, 130);
+		
+		endFrame.setLocationRelativeTo(null);
+		endFrame.setResizable(false);
+		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+		
+		// 방문 여는 효과음
+		Opening op = new Opening();
+	    op.Opening("bgm/DoorOpen.wav");
+		endFrame.setVisible(true);
+		
+	}
+	
+	
+	
+	class endThread extends Thread {
 		public void run() {
-			// 문 열기
 			try {
-				Thread.sleep(1000);
-				GoNext next = new GoNext();	// 다음 방으로 가는 프레임 띄움
-				dispose();	// 현재 창 닫기
+				endFrame();
+				Thread.sleep(6000);
+				Background bg = new Background();
+				endFrame.dispose();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+
+		}
+	}
+	
+	
+	// 배경음악 메소드 : 나무문
+	public static void  OpenBGM(String file) {
+		try {
+			AudioInputStream ais =
+					AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
+			Clip clip = AudioSystem.getClip();
+			clip.open(ais);
+			clip.start();
+				
+		} catch(Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
