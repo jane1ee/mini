@@ -77,7 +77,11 @@ public class ButtonManagement {
 	}
 	
 	public JButton clockHintButton(){
+<<<<<<< HEAD
 		button = new JButton((new ImageIcon("img/4th/button/hintButton/clock.png")));
+=======
+		button = new JButton((new ImageIcon("img/button/hintButton/clock.png")));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부
@@ -87,7 +91,11 @@ public class ButtonManagement {
 	}
 	
 	public JButton frameHintButton(){
+<<<<<<< HEAD
 		button = new JButton((new ImageIcon("img/4th/button/hintButton/frame.png")));
+=======
+		button = new JButton((new ImageIcon("img/button/hintButton/frame.png")));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부
@@ -97,7 +105,11 @@ public class ButtonManagement {
 	}
 	
 	public JButton lightHintButton(){
+<<<<<<< HEAD
 		button = new JButton((new ImageIcon("img/4th/button/hintButton/light.png")));
+=======
+		button = new JButton((new ImageIcon("img/button/hintButton/light.png")));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부
@@ -107,7 +119,11 @@ public class ButtonManagement {
 	}
 	
 	public JButton vaseHintButton(){
+<<<<<<< HEAD
 		button = new JButton((new ImageIcon("img/4th/button/hintButton/vase.png")));
+=======
+		button = new JButton((new ImageIcon("img/button/hintButton/vase.png")));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부
@@ -116,7 +132,11 @@ public class ButtonManagement {
 		return button;
 	}
 	public JButton countUpButton(){
+<<<<<<< HEAD
 		JButton countUpButton = new JButton(new ImageIcon("img/4th/finish/upImage.png"));
+=======
+		JButton countUpButton = new JButton(new ImageIcon("img/finish/upImage.png"));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		countUpButton.setBorderPainted(false);
 		countUpButton.setContentAreaFilled(false);
 		countUpButton.setFocusPainted(false);
@@ -126,7 +146,11 @@ public class ButtonManagement {
 	}
 	
 	public JButton exitButton(){
+<<<<<<< HEAD
 		button = new JButton(new ImageIcon("img/4th/button/enter.png"));
+=======
+		button = new JButton(new ImageIcon("img/button/enter.png"));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부
@@ -135,7 +159,11 @@ public class ButtonManagement {
 		return button;
 	}
 	public JButton exitDoor(){
+<<<<<<< HEAD
 		button = new JButton(new ImageIcon("img/4th/button/exitDoorButton.png"));
+=======
+		button = new JButton(new ImageIcon("img/button/exitDoorButton.png"));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부
@@ -145,7 +173,11 @@ public class ButtonManagement {
 	}
 	
 	public JButton finishExitButton(){
+<<<<<<< HEAD
 		button = new JButton(new ImageIcon("img/4th/button/exit.png"));
+=======
+		button = new JButton(new ImageIcon("img/button/exit.png"));
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		button.setBorderPainted(false); // 외각선을 없애준다
 		button.setContentAreaFilled(false); // 내용영역 채우기 않함
 		button.setFocusPainted(false); // 선택 되었을때 생기는 테두리 사용여부

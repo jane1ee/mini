@@ -3,7 +3,10 @@ package geoniRoom;
 import javax.swing.*;
 import javax.swing.plaf.synth.SynthStyle;
 
+<<<<<<< HEAD
 import gayoung.KkyRoom;
+=======
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 import geoniRoom.function.ButtonManagement;
 import geoniRoom.function.HintEvent;
 import geoniRoom.function.OfferFrame;
@@ -198,7 +201,10 @@ public class Background extends JFrame{
 		mainFrame.setBounds(300, 100, 1280, 800);
 		mainFrame.getContentPane().removeAll();
 		mainFrame.add(background);
+<<<<<<< HEAD
 		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
+=======
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		mainFrame.setVisible(true);
 		mainFrame.setResizable(false);
 
@@ -387,10 +393,18 @@ public class Background extends JFrame{
 			}
 			if(check==1){
 			
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 					frame.dispose();
 					mainFrame.dispose();
 					endFrame();
 					new endThread().start();
+<<<<<<< HEAD
+=======
+			
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		}
 		
 		}
@@ -456,12 +470,23 @@ public class Background extends JFrame{
 		
 		
 		class endThread extends Thread {
+<<<<<<< HEAD
 			public void run() {
 				try {
 					Thread.sleep(6000);
 					KkyRoom Kroom=new KkyRoom();
 					Kroom.setLocation(300,130);
 					endFrame.dispose();
+=======
+
+			public void run() {
+				try {
+
+					Thread.sleep(6000);
+					endFrame.dispose();
+					
+
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

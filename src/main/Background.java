@@ -11,10 +11,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+<<<<<<< HEAD
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
+=======
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,6 +27,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
+<<<<<<< HEAD
+=======
+import library.LightOff;
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 import library.LibraryRun;
 
 
@@ -180,8 +187,12 @@ public class Background extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				monologue = fc.monologue();
 				System.out.println(nameInput.getText());	
+<<<<<<< HEAD
 				name = nameInput.getText();
 				properties(name);
+=======
+				name = nameInput.getText();		
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 				nameField.dispose();
 				new LibraryThread().start();
 				mainFrame.getContentPane().removeAll();
@@ -225,7 +236,11 @@ public class Background extends JFrame {
 		@Override
 		public void run() {
 			try {
+<<<<<<< HEAD
 				Thread.sleep(32000);
+=======
+				Thread.sleep(33000);
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 				LibraryRun Library = new LibraryRun();
 				mainFrame.dispose();
 			} catch (InterruptedException e) {
@@ -233,6 +248,7 @@ public class Background extends JFrame {
 			}
 		}
 	}
+<<<<<<< HEAD
 	
 	
 	public void properties(String name) {
@@ -252,5 +268,7 @@ public class Background extends JFrame {
       }
       
    }
+=======
+>>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 }
 
