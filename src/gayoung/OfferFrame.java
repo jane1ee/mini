@@ -21,24 +21,24 @@ public class OfferFrame {
       selectF = new JFrame();
       selectF.setUndecorated(true);
       selectF.setResizable(false);
-      selectF.setBounds(500, 500, 540, 80);
+      selectF.setBounds(700, 500, 540, 80);
       switch(num){
       case 1 :
          //문제가 있는 경우 라벨
          JLabel haveL = new JLabel(new ImageIcon("img/popup/event.png"));
-         haveL.setBounds(500, 100, 540,80);
+         haveL.setBounds(0,0,540,80);
          selectF.add(haveL);
          break;
       case 2 :
          //아무것도 없을 경우 라벨
          JLabel noHaveL = new JLabel(new ImageIcon("img/popup/nothing.png"));
-         noHaveL.setBounds(500, 100, 540,80);
+         noHaveL.setBounds(0,0,540,80);
          selectF.add(noHaveL);
          break;
       case 3 :
          //아이템이 있을 경우 라벨
          JLabel whatL = new JLabel(new ImageIcon("img/popup/clue.png"));
-         whatL.setBounds(500, 100, 540,80);
+         whatL.setBounds(0,0,540,80);
          selectF.add(whatL);
          break;
       }

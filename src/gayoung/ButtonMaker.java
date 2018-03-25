@@ -26,7 +26,6 @@ import javax.swing.JTextField;
 public class ButtonMaker {
 	   OfferFrame offer = new OfferFrame();
 	   
-	   
 	   JFrame frame;
 	   JFrame offerF;
 	   JPanel answerP = new JPanel(); 

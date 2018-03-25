@@ -585,7 +585,7 @@ public class TheRoom extends JFrame {
 	public void endFrame(){
 		Image img;
 		Toolkit tk = Toolkit.getDefaultToolkit();
-		img = tk.getImage("img/opendoor/opendoor(4).gif");
+		img = tk.getImage("img/opendoor/opendoor(3).gif");
 		
 		background = new JPanel(){
 			@Override
@@ -608,7 +608,7 @@ public class TheRoom extends JFrame {
 		endFrame.setSize(1280, 800);
 		endFrame.setLocation(300, 130);
 		
-		endFrame.setLocationRelativeTo(null);
+//		endFrame.setLocationRelativeTo(null);
 		endFrame.setResizable(false);
 		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 		
@@ -628,25 +628,11 @@ public class TheRoom extends JFrame {
 				Thread.sleep(6000);
 				Background bg = new Background();
 				endFrame.dispose();
+				dispose();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 
-		}
-	}
-	
-	
-	// 배경음악 메소드 : 나무문
-	public static void  OpenBGM(String file) {
-		try {
-			AudioInputStream ais =
-					AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
-			Clip clip = AudioSystem.getClip();
-			clip.open(ais);
-			clip.start();
-				
-		} catch(Exception e) {
-			e.printStackTrace();
 		}
 	}
 }

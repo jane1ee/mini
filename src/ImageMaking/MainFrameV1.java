@@ -10,12 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -439,7 +434,7 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 				endFrame();
 				QuizFrame.dispose();
 				Thread.sleep(6000);
-//				Run run = new Run();
+				Run run = new Run();
 				endFrame.dispose();
 				MainFrame.dispose();
 
@@ -514,21 +509,6 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 		Opening op = new Opening();
 		op.Opening("bgm/DoorOpen.wav");
 		endFrame.setVisible(true);
-	}
-
-	
-	// 배경음악 메소드 : 나무문
-	public static void OpenBGM(String file) {
-		try {
-			AudioInputStream ais =
-					AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
-			Clip clip = AudioSystem.getClip();
-			clip.open(ais);
-			clip.start();
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	

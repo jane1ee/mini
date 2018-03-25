@@ -421,7 +421,7 @@ public class Background extends JFrame{
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(1280, 800);
 
-		mainFrame.setLocationRelativeTo(null);
+//		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setResizable(false);
 		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 		mainFrame.setVisible(true);
