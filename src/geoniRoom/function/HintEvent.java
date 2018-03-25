@@ -44,7 +44,7 @@ public class HintEvent {
 	//힌트 곰돌이 생성전 독백
 	public JTextArea messageTest(){
 		Image textboxBg = new ImageIcon("img/textbox/storyConsol.png").getImage();
-		Font f1 = new Font("고딕", Font.BOLD, 40);
+		Font f1 = new Font("나눔스퀘어", Font.BOLD, 40);
 		//독백 배경화면 
 		storyConsol = new JTextArea(){
 			@Override

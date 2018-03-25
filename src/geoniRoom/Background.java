@@ -3,6 +3,7 @@ package geoniRoom;
 import javax.swing.*;
 import javax.swing.plaf.synth.SynthStyle;
 
+import gayoung.KkyRoom;
 import geoniRoom.function.ButtonManagement;
 import geoniRoom.function.HintEvent;
 import geoniRoom.function.OfferFrame;
@@ -197,6 +198,7 @@ public class Background extends JFrame{
 		mainFrame.setBounds(300, 100, 1280, 800);
 		mainFrame.getContentPane().removeAll();
 		mainFrame.add(background);
+		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 		mainFrame.setVisible(true);
 		mainFrame.setResizable(false);
 
@@ -385,12 +387,10 @@ public class Background extends JFrame{
 			}
 			if(check==1){
 			
-		
 					frame.dispose();
 					mainFrame.dispose();
 					endFrame();
 					new endThread().start();
-			
 		}
 		
 		}
@@ -456,14 +456,12 @@ public class Background extends JFrame{
 		
 		
 		class endThread extends Thread {
-
 			public void run() {
 				try {
-
 					Thread.sleep(6000);
+					KkyRoom Kroom=new KkyRoom();
+					Kroom.setLocation(300,130);
 					endFrame.dispose();
-					
-
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

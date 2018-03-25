@@ -163,6 +163,7 @@ public class BreakLibrary extends JFrame {
 					event.setVisible(true);
 					// 팝업 종료, 문제 출력
 					new LetterThread().start();
+					background.add(starBtn);
 				} else if (passCnt == 1) {
 					JOptionPane.showMessageDialog(background, "저기 걸려 있는 그림은 무슨 그림이지?");
 				} else {
@@ -170,7 +171,7 @@ public class BreakLibrary extends JFrame {
 				}
 			}
 		});
-
+		
 		
 		
 		//  문제 2 : 액자(별이 빛나는 밤) 클릭시 출력
@@ -182,9 +183,9 @@ public class BreakLibrary extends JFrame {
 		starBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(passCnt == 0) {
-					JOptionPane.showMessageDialog(background, "편지를 먼저 찾아야 해.");
-				} else if(passCnt == 1) {
+					if(passCnt == 0) {
+						JOptionPane.showMessageDialog(background, "이 그림의 제목과 연관이 있어.");
+					} else if(passCnt == 1) {
 					// 문제 발견 팝업
 					event = new JFrame();
 					// 위치, 크기 설정
@@ -353,7 +354,6 @@ public class BreakLibrary extends JFrame {
 		
 		// 버튼 프레임에 추가
 		background.add(bookBtn);
-		background.add(starBtn);
 		background.add(starPoetBtn);
 		background.add(mirrorBtn);
 		background.add(hintBtn);
