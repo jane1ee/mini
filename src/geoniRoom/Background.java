@@ -3,10 +3,7 @@ package geoniRoom;
 import javax.swing.*;
 import javax.swing.plaf.synth.SynthStyle;
 
-<<<<<<< HEAD
 import gayoung.KkyRoom;
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 import geoniRoom.function.ButtonManagement;
 import geoniRoom.function.HintEvent;
 import geoniRoom.function.OfferFrame;
@@ -201,10 +198,7 @@ public class Background extends JFrame{
 		mainFrame.setBounds(300, 100, 1280, 800);
 		mainFrame.getContentPane().removeAll();
 		mainFrame.add(background);
-<<<<<<< HEAD
 		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-=======
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		mainFrame.setVisible(true);
 		mainFrame.setResizable(false);
 
@@ -262,6 +256,7 @@ public class Background extends JFrame{
 		countBt7.setBounds(435, 320, 55, 55);
 		
 			
+		backP.add(exitButton);
 		backP.add(numKey1);
 		backP.add(numKey2);
 		backP.add(numKey3);
@@ -315,8 +310,7 @@ public class Background extends JFrame{
 			}
 		});
 		
-			countBt3.addActionListener(new ActionListener() {
-			
+		countBt3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(count3 ==10){
@@ -327,8 +321,8 @@ public class Background extends JFrame{
 				exitRoom(count1 , count2,count3,count4,count5,count6,count7);
 			}
 		});
-			countBt4.addActionListener(new ActionListener() {
-				
+		
+		countBt4.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if(count4 ==10){
@@ -339,8 +333,8 @@ public class Background extends JFrame{
 					exitRoom(count1 , count2,count3,count4,count5,count6,count7);
 				}
 			});
-			countBt5.addActionListener(new ActionListener() {
-				
+		
+		countBt5.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if(count5 ==10){
@@ -352,8 +346,8 @@ public class Background extends JFrame{
 				}
 			});
 		
-			countBt6.addActionListener(new ActionListener() {
-				
+		
+		countBt6.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if(count6 ==10){
@@ -364,8 +358,8 @@ public class Background extends JFrame{
 					exitRoom(count1 , count2,count3,count4,count5,count6,count7);
 				}
 			});
-			countBt7.addActionListener(new ActionListener() {
-				
+		
+		countBt7.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					if(count7 ==10){
@@ -393,18 +387,11 @@ public class Background extends JFrame{
 			}
 			if(check==1){
 			
-<<<<<<< HEAD
-=======
-		
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 					frame.dispose();
 					mainFrame.dispose();
 					endFrame();
 					new endThread().start();
-<<<<<<< HEAD
-=======
 			
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		}
 		
 		}
@@ -435,6 +422,7 @@ public class Background extends JFrame{
 
 			mainFrame.setLocationRelativeTo(null);
 			mainFrame.setResizable(false);
+			mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 			mainFrame.setVisible(true);
 		}
 		
@@ -463,6 +451,7 @@ public class Background extends JFrame{
 			
 			endFrame.setLocationRelativeTo(null);
 			endFrame.setResizable(false);
+			endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 			endFrame.setVisible(true);
 			
 		}
@@ -470,23 +459,12 @@ public class Background extends JFrame{
 		
 		
 		class endThread extends Thread {
-<<<<<<< HEAD
 			public void run() {
 				try {
 					Thread.sleep(6000);
 					KkyRoom Kroom=new KkyRoom();
 					Kroom.setLocation(300,130);
 					endFrame.dispose();
-=======
-
-			public void run() {
-				try {
-
-					Thread.sleep(6000);
-					endFrame.dispose();
-					
-
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

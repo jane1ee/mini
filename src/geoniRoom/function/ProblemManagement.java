@@ -162,7 +162,7 @@ public class ProblemManagement extends JFrame {
 			numLabel.setBounds(365, 160, 55, 150);
 			break;
 		case 7:
-			numLabel = new JLabel(new ImageIcon("im/4th/finish/key/0.png"));
+			numLabel = new JLabel(new ImageIcon("img/4th/finish/key/0.png"));
 			numLabel.setBounds(435, 160, 55, 150);
 			break;
 		}

@@ -7,12 +7,5 @@ public class RunTest {
 		//건희 룸
 		Background back = new Background();
 	
-		
-		
-	
-		
-		
-	
 	}
-
 }

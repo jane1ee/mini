@@ -97,13 +97,8 @@ public class TheRoom extends JFrame {
 		scrollPane = new JScrollPane(background);
 		setContentPane(scrollPane);
 		
-<<<<<<< HEAD
 //		// 배경음악, 반복재생
 //		LibraryBGM("bgm/St_Francis.wav");
-=======
-		// 배경음악, 반복재생
-		LibraryBGM("bgm/St_Francis.wav");
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 		
 		// 패널 레이아웃 설정
 		background.setLayout(null);
@@ -486,7 +481,6 @@ public class TheRoom extends JFrame {
 	}
 	
 	
-<<<<<<< HEAD
 //	public static void  LibraryBGM(String file) {
 //		try {
 //			AudioInputStream ais =
@@ -499,20 +493,6 @@ public class TheRoom extends JFrame {
 //			e.printStackTrace();
 //		}
 //	}
-=======
-	public static void  LibraryBGM(String file) {
-		try {
-			AudioInputStream ais =
-					AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
-			Clip clip = AudioSystem.getClip();
-			clip.open(ais);
-			clip.start();
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
->>>>>>> 00b55bac3390127d8524e0fb28b27d91ba2504d9
 	
 	
 	public void checked() {

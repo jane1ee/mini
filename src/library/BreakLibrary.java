@@ -122,7 +122,7 @@ public class BreakLibrary extends JFrame {
 		
 		
 		// 배경음악, 반복재생
-		LibraryBGM("bgm/hfo.wav", true);
+		LibraryBGM("bgm/Digital_Memories.wav", true);
 		
 		// 패널 레이아웃 설정
 		background.setLayout(null);
