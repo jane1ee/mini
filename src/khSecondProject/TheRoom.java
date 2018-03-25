@@ -28,6 +28,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import geoniRoom.Background;
+import main.DoorOpen;
 import main.Opening;
 
 
@@ -583,40 +584,7 @@ public class TheRoom extends JFrame {
 
 	// 아웃트로
 	public void endFrame(){
-		Image img;
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		img = tk.getImage("img/opendoor/opendoor(3).gif");
-		
-		background = new JPanel(){
-			@Override
-			public void paint(Graphics g) {
-				if(img == null){
-					return;
-				}
-				g.drawImage(img, 0, 0, this);
-				setOpaque(false);
-				super.paint(g);
-			}
-		};
-
-		endFrame = new JFrame();
-		endFrame.setTitle("to the Next Room");
-		scrollPane = new JScrollPane(background);
-		endFrame.add(scrollPane);
-
-		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		endFrame.setSize(1280, 800);
-		endFrame.setLocation(300, 130);
-		
-//		endFrame.setLocationRelativeTo(null);
-		endFrame.setResizable(false);
-		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-		
-		// 방문 여는 효과음
-		Opening op = new Opening();
-	    op.Opening("bgm/DoorOpen.wav");
-		endFrame.setVisible(true);
-		
+		DoorOpen door = new DoorOpen("3");
 	}
 	
 	
@@ -627,7 +595,6 @@ public class TheRoom extends JFrame {
 				endFrame();
 				Thread.sleep(6000);
 				Background bg = new Background();
-				endFrame.dispose();
 				dispose();
 			} catch (InterruptedException e) {
 				e.printStackTrace();

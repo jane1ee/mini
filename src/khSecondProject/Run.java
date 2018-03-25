@@ -17,7 +17,7 @@ public class Run {
 				Runnable task1 = ()->{
 					
 					start.setTitle("THE ROOM");
-					start.setLocation(300, 130);
+					start.setLocationRelativeTo(null);
 					start.setSize(1280, 800);
 					start.setResizable(false);
 					start.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -49,8 +49,8 @@ public class KkyRoom extends JFrame {
 	   
 	 
 	public KkyRoom() {
-
-		setBounds(300, 130, 1280, 800);
+		setLocationRelativeTo(null);
+		setSize(1280, 800);
 		setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		

@@ -8,6 +8,7 @@ import geoniRoom.function.ButtonManagement;
 import geoniRoom.function.HintEvent;
 import geoniRoom.function.OfferFrame;
 import geoniRoom.function.ProblemManagement;
+import main.DoorOpen;
 import main.Opening;
 
 import java.awt.event.*;
@@ -195,8 +196,9 @@ public class Background extends JFrame{
 		
 		
 		mainFrame.setTitle("건희방");
+		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setBounds(300, 100, 1280, 800);
+		mainFrame.setSize(1280, 800);
 		mainFrame.getContentPane().removeAll();
 		mainFrame.add(background);
 		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
@@ -421,45 +423,14 @@ public class Background extends JFrame{
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setSize(1280, 800);
 
-//		mainFrame.setLocationRelativeTo(null);
+		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setResizable(false);
 		mainFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
 		mainFrame.setVisible(true);
 	}
 	
 	public void endFrame(){
-		Image img;
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		img = tk.getImage("img/opendoor/opendoor(4).gif");
-		
-		background = new JPanel(){
-			@Override
-			public void paint(Graphics g) {
-				if(img == null){
-					return;
-				}
-				g.drawImage(img, 0, 0, this);
-				setOpaque(false);
-				super.paint(g);
-			}
-		};
-		endFrame.add(background);
-		endFrame.setTitle("to the Next Room");
-		scrollPane = new JScrollPane(background);
-		endFrame.add(scrollPane);
-
-		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		endFrame.setSize(1280, 800);
-		
-		endFrame.setLocationRelativeTo(null);
-		endFrame.setResizable(false);
-		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-		
-		// 방문 여는 효과음
-		Opening op = new Opening();
-	    op.Opening("bgm/DoorOpen.wav");
-		endFrame.setVisible(true);
-		
+		DoorOpen door = new DoorOpen("4");
 	}
 	
 	
@@ -470,7 +441,7 @@ public class Background extends JFrame{
 				Thread.sleep(6000);
 				KkyRoom Kroom=new KkyRoom();
 				Kroom.setLocation(300,130);
-				endFrame.dispose();
+				
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

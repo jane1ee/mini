@@ -29,6 +29,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import ImageMaking.MainFrameV1;
+import main.DoorOpen;
 import main.Opening;
 import main.Propotie;
 import main.Stopwatch;
@@ -179,7 +180,6 @@ public class BreakLibrary extends JFrame {
 		starBtn = new JButton(starFrame);
 		starBtn.setBounds(915, 228, starFrame.getIconWidth(), starFrame.getIconHeight());
 		starBtn.setBorderPainted(false);
-		starBtn.addMouseListener(new OnOffMouse());
 		starBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -209,6 +209,8 @@ public class BreakLibrary extends JFrame {
 				}
 			}
 		});
+		starBtn.addMouseListener(new OnOffMouse());
+		
 		
 		//  문제 2 힌트 : 액자(하늘 바람 별) : 시 이미지 출력
 		starHint = new ImageIcon("img/1st/library/hintFrame.png");
@@ -625,40 +627,7 @@ public class BreakLibrary extends JFrame {
 
 	// 아웃트로
 	public void endFrame(){
-		Image img;
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		img = tk.getImage("img/opendoor/opendoor(1).gif");
-		
-		background = new JPanel(){
-			@Override
-			public void paint(Graphics g) {
-				if(img == null){
-					return;
-				}
-				g.drawImage(img, 0, 0, this);
-				setOpaque(false);
-				super.paint(g);
-			}
-		};
-
-		endFrame = new JFrame();
-		endFrame.setTitle("to the Next Room");
-		scrollPane = new JScrollPane(background);
-		endFrame.add(scrollPane);
-
-		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		endFrame.setSize(1280, 800);
-		endFrame.setLocation(300, 130);
-		
-		endFrame.setLocationRelativeTo(null);
-		endFrame.setResizable(false);
-		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-		
-		// 방문 여는 효과음
-		Opening op = new Opening();
-	    op.Opening("bgm/DoorOpen.wav");
-		endFrame.setVisible(true);
-		
+		DoorOpen door = new DoorOpen("1");
 	}
 	
 	
@@ -669,7 +638,7 @@ public class BreakLibrary extends JFrame {
 				endFrame();
 				Thread.sleep(6000);
 				MainFrameV1 v1 = new MainFrameV1();
-				endFrame.dispose();
+				dispose();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

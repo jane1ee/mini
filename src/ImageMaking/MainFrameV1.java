@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import khSecondProject.Run;
+import main.DoorOpen;
 import main.Opening;
 
 public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionListener {
@@ -435,7 +436,6 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 				QuizFrame.dispose();
 				Thread.sleep(6000);
 				Run run = new Run();
-				endFrame.dispose();
 				MainFrame.dispose();
 
 			} catch (InterruptedException e) {
@@ -478,37 +478,7 @@ public class MainFrameV1 extends JFrame implements MouseListener, MouseMotionLis
 	}
 
 	public void endFrame() {
-		JFrame frame = new JFrame();
-		Image img;
-		Toolkit tk = Toolkit.getDefaultToolkit();
-		img = tk.getImage("img/opendoor/opendoor(2).gif");
-		
-		background = new JPanel(){
-			@Override
-			public void paint(Graphics g) {
-				if(img == null){
-					return;
-				}
-				g.drawImage(img, 0, 0, this);
-				setOpaque(false);
-				super.paint(g);
-			}
-		};
-		endFrame.add(background);
-		scrollPane = new JScrollPane(background);
-		endFrame.add(scrollPane);
-
-		endFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		endFrame.setSize(1280, 800);
-		
-		endFrame.setLocationRelativeTo(null);
-		endFrame.setResizable(false);
-		endFrame.setIconImage(new ImageIcon("img/favicon.jpg").getImage());
-
-		// 방문 여는 효과음
-		Opening op = new Opening();
-		op.Opening("bgm/DoorOpen.wav");
-		endFrame.setVisible(true);
+		DoorOpen door = new DoorOpen("2");
 	}
 
 	

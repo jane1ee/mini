@@ -83,6 +83,11 @@ public class StarCount extends JFrame {
 			
 			@Override
 			public void mouseEntered(MouseEvent e) {
+				tk = Toolkit.getDefaultToolkit();
+				mouseImg = new ImageIcon("img/cursor/cursor.png").getImage();
+				point = new Point(0, 0);
+				mouse = tk.createCustomCursor(mouseImg, point, "wonder");
+				starLabel.setCursor(mouse);
 			}
 			
 			@Override
